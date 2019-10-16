@@ -21,9 +21,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
     int scoreleft,scoreright,foulleft,foulright,period=1,teamchoice;
-
     int assist,block,turnover,steal,offensive_rebound,defensive_rebound;
     int markmember,markevent;
+    int p11i,p11o,p12i,p12o,p13i,p13o,p1dr,p1or,p1as,p1st,p1to,p1bl,p1df,p1of;
+    int p21i,p21o,p22i,p22o,p23i,p23o,p2dr,p2or,p2as,p2st,p2to,p2bl,p2df,p2of;
 
 
     public void scoreplus1(View v){
@@ -72,6 +73,16 @@ public class MainActivity extends AppCompatActivity {
             event.setText("");
             member.setText("");
         }
+        switch (markmember){
+            case 1:
+                p12i++;
+                break;
+            case 2:
+                p22i++;
+                break;
+            case 3:
+        }
+
         markevent=0;
         markmember=0;
         teamchoice=0;
@@ -105,43 +116,58 @@ public class MainActivity extends AppCompatActivity {
         TextView event,member;
         event =findViewById(R.id.event);
         member =findViewById(R.id.membernum);
+        TextView showt;
+        showt=findViewById(R.id.showtext);
         if(teamchoice==1 ){
             event.setText("罰球未進");
+            showt.append("淺色_"+markmember+"號_罰球未進\n");
         }else if(teamchoice==2){
             event.setText("罰球未進");
+            showt.append("深色_"+markmember+"號_罰球未進\n");
         }else{
             event.setText("");
             member.setText("");
         }
         teamchoice=0;
+        markmember=0;
     }
     public void scoren2(View v){
         TextView event,member;
+        TextView showt;
+        showt=findViewById(R.id.showtext);
         event =findViewById(R.id.event);
         member =findViewById(R.id.membernum);
         if(teamchoice==1 ){
             event.setText("2分未進");
+            showt.append("淺色_"+markmember+"號_2分未進\n");
         }else if(teamchoice==2){
             event.setText("2分未進");
+            showt.append("深色_"+markmember+"號_2分未進\n");
         }else{
             event.setText("");
             member.setText("");
         }
         teamchoice=0;
+        markmember=0;
     }
     public void scoren3(View v){
         TextView event,member;
+        TextView showt;
+        showt=findViewById(R.id.showtext);
         event =findViewById(R.id.event);
         member =findViewById(R.id.membernum);
         if(teamchoice==1 ){
             event.setText("3分未進");
+            showt.append("淺色_"+markmember+"號_3分未進\n");
         }else if(teamchoice==2){
             event.setText("3分未進");
+            showt.append("深色_"+markmember+"號_3分未進\n");
         }else{
             event.setText("");
             member.setText("");
         }
         teamchoice=0;
+        markmember=0;
     }
     public void periodplus(View v){
         TextView perioD;
@@ -157,141 +183,181 @@ public class MainActivity extends AppCompatActivity {
     }
     public void Offensivefoul(View v){
         TextView foulL,event,foulR,member;
+        TextView showt;
+        showt=findViewById(R.id.showtext);
         event =findViewById(R.id.event);
         member =findViewById(R.id.membernum);
         event.setText("進攻犯規");
         if(teamchoice==1 ){
+            showt.append("淺色_"+markmember+"號_進攻犯規\n");
             foulL = findViewById(R.id.foulleft);
             if(foulleft==5){
                 foulleft=5;
             }else{
                 foulleft++;
             }
-            foulL.setText("" + foulleft );
+            foulL.setText("犯規數\n" + foulleft );
         }else if(teamchoice==2){
+            showt.append("深色_"+markmember+"號_進攻犯規\n");
             foulR = findViewById(R.id.foulright);
             if(foulright==5){
                 foulright=5;
             }else{
                 foulright++;
             }
-            foulR.setText("" + foulright );
+            foulR.setText("犯規數\n" + foulright );
         }else{
             event.setText("");
             member.setText("");
         }
         teamchoice=0;
+        markmember=0;
     }
     public void Defensivefoul(View v){
         TextView foulL,event,foulR,member;
+        TextView showt;
+        showt=findViewById(R.id.showtext);
         event =findViewById(R.id.event);
         member =findViewById(R.id.membernum);
         event.setText("防守犯規");
         if(teamchoice==1 ){
+            showt.append("淺色_"+markmember+"號_防守犯規\n");
             foulL = findViewById(R.id.foulleft);
             if(foulleft==5){
                 foulleft=5;
             }else{
                 foulleft++;
             }
-            foulL.setText("" + foulleft );
+            foulL.setText("犯規數\n" + foulleft );
         }else if(teamchoice==2){
+            showt.append("深色_"+markmember+"號_防守犯規\n");
             foulR = findViewById(R.id.foulright);
             if(foulright==5){
                 foulright=5;
             }else{
                 foulright++;
             }
-            foulR.setText("" + foulright );
+            foulR.setText("犯規數\n" + foulright );
         }else{
             event.setText("");
             member.setText("");
         }
         teamchoice=0;
+        markmember=0;
     }
     public void Steal(View v){
-        TextView scoreL,event,scoreR,member;
+        TextView event,member;
+        TextView showt;
+        showt=findViewById(R.id.showtext);
         event =findViewById(R.id.event);
         member =findViewById(R.id.membernum);
         if(teamchoice==1 ){
             event.setText("抄截");
+            showt.append("淺色_"+markmember+"號_抄截\n");
         }else if(teamchoice==2){
             event.setText("抄截");
+            showt.append("深色_"+markmember+"號_抄截\n");
         }else{
             event.setText("");
             member.setText("");
         }
         teamchoice=0;
+        markmember=0;
     }
     public void Turnover(View v){
         TextView event,member;
+        TextView showt;
+        showt=findViewById(R.id.showtext);
         event =findViewById(R.id.event);
         member =findViewById(R.id.membernum);
         if(teamchoice==1 ){
             event.setText("失誤");
+            showt.append("淺色_"+markmember+"號_失誤\n");
         }else if(teamchoice==2){
             event.setText("失誤");
+            showt.append("深色_"+markmember+"號_失誤\n");
         }else{
             event.setText("");
             member.setText("");
         }
         teamchoice=0;
+        markmember=0;
     }
     public void Block(View v){
         TextView event,member;
+        TextView showt;
+        showt=findViewById(R.id.showtext);
         event =findViewById(R.id.event);
         member =findViewById(R.id.membernum);
         if(teamchoice==1 ){
             event.setText("阻攻");
+            showt.append("淺色_"+markmember+"號_阻攻\n");
         }else if(teamchoice==2){
             event.setText("阻攻");
+            showt.append("深色_"+markmember+"號_阻攻\n");
         }else{
             event.setText("");
             member.setText("");
         }
         teamchoice=0;
+        markmember=0;
     }
     public void Assist(View v){
         TextView event,member;
+        TextView showt;
+        showt=findViewById(R.id.showtext);
         event =findViewById(R.id.event);
         member =findViewById(R.id.membernum);
         if(teamchoice==1 ){
             event.setText("助攻");
+            showt.append("淺色_"+markmember+"號_助攻\n");
         }else if(teamchoice==2){
             event.setText("助攻");
+            showt.append("深色_"+markmember+"號_助攻\n");
         }else{
             event.setText("");
             member.setText("");
         }
         teamchoice=0;
+        markmember=0;
     }
     public void Offensive_rebound(View v){
         TextView event,member;
+        TextView showt;
+        showt=findViewById(R.id.showtext);
         event =findViewById(R.id.event);
         member =findViewById(R.id.membernum);
         if(teamchoice==1 ){
             event.setText("進攻籃板");
+            showt.append("淺色_"+markmember+"號_進攻籃板\n");
         }else if(teamchoice==2){
             event.setText("進攻籃板");
+            showt.append("深色_"+markmember+"號_進攻籃板\n");
         }else{
             event.setText("");
             member.setText("");
         }
         teamchoice=0;
+        markmember=0;
     }
     public void Defensive_rebound(View v){
         TextView event,member;
+        TextView showt;
+        showt=findViewById(R.id.showtext);
         event =findViewById(R.id.event);
         member =findViewById(R.id.membernum);
         if(teamchoice==1 ){
             event.setText("防守籃板");
+            showt.append("淺色_"+markmember+"號_防守籃板\n");
         }else if(teamchoice==2){
             event.setText("防守籃板");
+            showt.append("深色_"+markmember+"號_防守籃板\n");
         }else{
             event.setText("");
             member.setText("");
         }
         teamchoice=0;
+        markmember=0;
     }
     public void member1(View v){
         TextView event,member;
