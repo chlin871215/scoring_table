@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button29"
+        android:id="@+id/memberR5"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="8dp"
@@ -16,7 +16,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:onClick="member12"
+        android:onClick="memberR5"
         android:text="12"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +26,7 @@
         app:layout_constraintVertical_bias="0.772" />
 
     <Button
-        android:id="@+id/button28"
+        android:id="@+id/memberR4"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="8dp"
@@ -35,7 +35,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:onClick="member11"
+        android:onClick="memberR4"
         android:text="11"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +45,7 @@
         app:layout_constraintVertical_bias="0.772" />
 
     <Button
-        android:id="@+id/button27"
+        android:id="@+id/memberR3"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="8dp"
@@ -54,7 +54,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:onClick="member9"
+        android:onClick="memberR3"
         android:text="9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,7 +64,7 @@
         app:layout_constraintVertical_bias="0.772" />
 
     <Button
-        android:id="@+id/button26"
+        android:id="@+id/memberR2"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="8dp"
@@ -73,7 +73,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:onClick="member8"
+        android:onClick="memberR2"
         android:text="8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,7 +83,7 @@
         app:layout_constraintVertical_bias="0.772" />
 
     <Button
-        android:id="@+id/button25"
+        android:id="@+id/memberR1"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="8dp"
@@ -92,7 +92,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:onClick="member7"
+        android:onClick="memberR1"
         android:text="7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -102,7 +102,7 @@
         app:layout_constraintVertical_bias="0.772" />
 
     <Button
-        android:id="@+id/button24"
+        android:id="@+id/memberL5"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="8dp"
@@ -111,7 +111,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:onClick="member5"
+        android:onClick="memberL5"
         android:text="5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -121,7 +121,7 @@
         app:layout_constraintVertical_bias="0.772" />
 
     <Button
-        android:id="@+id/button23"
+        android:id="@+id/memberL4"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="8dp"
@@ -130,7 +130,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:onClick="member4"
+        android:onClick="memberL4"
         android:text="4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -140,7 +140,7 @@
         app:layout_constraintVertical_bias="0.772" />
 
     <Button
-        android:id="@+id/button22"
+        android:id="@+id/memberL3"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="8dp"
@@ -149,7 +149,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:onClick="member3"
+        android:onClick="memberL3"
         android:text="3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -159,7 +159,7 @@
         app:layout_constraintVertical_bias="0.772" />
 
     <Button
-        android:id="@+id/button21"
+        android:id="@+id/memberL2"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="8dp"
@@ -168,7 +168,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:onClick="member2"
+        android:onClick="memberL2"
         android:text="2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -191,7 +191,7 @@
         android:text="節數+"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.274"
+        app:layout_constraintHorizontal_bias="0.384"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.913" />
@@ -210,7 +210,26 @@
         android:text="節數-"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.384"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.913" />
+
+    <Button
+        android:id="@+id/changemember"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="change"
+        android:text="換人"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.275"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.913" />
@@ -427,7 +446,7 @@
         app:layout_constraintVertical_bias="0.486" />
 
     <Button
-        android:id="@+id/button20"
+        android:id="@+id/memberL1"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="8dp"
@@ -436,7 +455,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:onClick="member1"
+        android:onClick="memberL1"
         android:text="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -672,5 +691,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.486" />
+
+    <EditText
+        android:id="@+id/changememberbefore"
+        android:layout_width="61dp"
+        android:layout_height="66dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.091"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.891" />
+
+    <EditText
+        android:id="@+id/changememberafter"
+        android:layout_width="61dp"
+        android:layout_height="66dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.169"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.891" />
 
 </android.support.constraint.ConstraintLayout>
