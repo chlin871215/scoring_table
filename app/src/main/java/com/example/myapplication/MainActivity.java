@@ -21,16 +21,98 @@ public class MainActivity extends AppCompatActivity {
         foulL.setText("犯規數\n" + foulleft );
         foulR.setText("犯規數\n" + foulright );
     }
-    int scoreleft,scoreright,foulleft,foulright,scoreplus,foulplus,period=1;
-    String markmember,markevent,teamchoice,chmembe,chmemaf;
 
-    public void change(View v){
+    int scoreleft,scoreright,foulleft,foulright,scoreplus,foulplus,period=1,chmembe,chmemaf;
+    String markmember,markevent,teamchoice;
+    /*public void change(){
+        int L[]={1,1,1,1,1};
+        int RR[]={1,1,1,1,1};
         EditText chbe = findViewById(R.id.changememberbefore);
         EditText chaf = findViewById(R.id.changememberafter);
-        chmembe = chbe.getText().toString();
-        chmemaf = chaf.getText().toString();
+        chmembe=Integer.valueOf(chbe.getText().toString());
+        chmemaf=Integer.valueOf(chaf.getText().toString());
+        Button memberL1=findViewById(R.id.memberL1);
+        Button memberL2=findViewById(R.id.memberL2);
+        Button memberL3=findViewById(R.id.memberL3);
+        Button memberL4=findViewById(R.id.memberL4);
+        Button memberL5=findViewById(R.id.memberL5);
+        Button memberR1=findViewById(R.id.memberR1);
+        Button memberR2=findViewById(R.id.memberR2);
+        Button memberR3=findViewById(R.id.memberR3);
+        Button memberR4=findViewById(R.id.memberR4);
+        Button memberR5=findViewById(R.id.memberR5);
+        L[0]=Integer.valueOf(memberL1.getText().toString());
+        L[1]=Integer.valueOf(memberL2.getText().toString());
+        L[2]=Integer.valueOf(memberL3.getText().toString());
+        L[3]=Integer.valueOf(memberL4.getText().toString());
+        L[4]=Integer.valueOf(memberL5.getText().toString());
+        RR[0]=Integer.valueOf(memberR1.getText().toString());
+        RR[1]=Integer.valueOf(memberR2.getText().toString());
+        RR[2]=Integer.valueOf(memberR3.getText().toString());
+        RR[3]=Integer.valueOf(memberR4.getText().toString());
+        RR[4]=Integer.valueOf(memberR5.getText().toString());
 
+        if(teamchoice=="深色"){
+            for(int i=0;i<5;i++) {
+                while (chmemaf != RR[i]&&i==4) {
+                    for(int k=0;k<5;k++) {
+                        if (chmembe == RR[k]) {
+                            RR[k]=chmemaf;
+                        }
+                    }
+                }
+            }
+        }else if(teamchoice=="淺色"){
+            for(int i=0;i<5;i++) {
+                while (chmemaf != L[i]&&i==4) {
+                    for(int k=0;k<5;k++) {
+                        if (chmembe == L[k]) {
+                            L[k]=chmemaf;
+                        }
+                    }
+                }
+            }
+        }
+        for(int i=0;i<5;i++){
+            for(int k=i+1;k<5;k++){
+                if(L[i]>L[k]){
+                    int buffer=L[i];
+                    L[i]=L[k];
+                    L[k]=buffer;
+                }
+            }
+        }
+        for(int i=0;i<5;i++){
+            for(int k=i+1;k<5;k++){
+                if(RR[i]>RR[k]){
+                    int buffer=RR[i];
+                    RR[i]=RR[k];
+                    RR[k]=buffer;
+                }
+            }
+        }
+        memberL1.setText(L[0]);
+        memberL2.setText(L[1]);
+        memberL3.setText(L[2]);
+        memberL4.setText(L[3]);
+        memberL5.setText(L[4]);
+        memberR1.setText(RR[0]);
+        memberR2.setText(RR[1]);
+        memberR3.setText(RR[2]);
+        memberR4.setText(RR[3]);
+        memberR5.setText(RR[4]);
+        teamchoice="";
+        chbe.setText("");
+        chaf.setText("");
     }
+    public void changeL(View v){
+        teamchoice="淺色";
+        change();
+    }
+    public void changeR(View v){
+        teamchoice="深色";
+        change();
+    }*/
     public void event() {
         TextView showt=findViewById(R.id.showtext);
         TextView event =findViewById(R.id.event);
