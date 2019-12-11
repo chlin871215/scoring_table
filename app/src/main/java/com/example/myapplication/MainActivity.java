@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,11 +21,30 @@ public class MainActivity extends AppCompatActivity {
         perioD.setText("節數\n" + period );
         foulL.setText("犯規數\n" + foulleft );
         foulR.setText("犯規數\n" + foulright );
+        //
+        final TextView text_view = (TextView) findViewById(R.id.showtext);
+        new Thread(new Runnable(){
+            public void run(){
+                MysqlCon con = new MysqlCon();
+                con.run();
+                final String data = con.getData();
+                Log.v("OK",data);
+                text_view.post(new Runnable() {
+                    public void run() {
+                        text_view.setText(data);
+                    }
+                });
+
+            }
+        }).start();
     }
 
     int scoreleft,scoreright,foulleft,foulright,scoreplus,foulplus,period=1,chmembe,chmemaf;
     String markmember,markevent,teamchoice;
-    /*public void change(){
+
+
+    public void change(){
+
         int L[]={1,1,1,1,1};
         int RR[]={1,1,1,1,1};
         EditText chbe = findViewById(R.id.changememberbefore);
@@ -64,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }else if(teamchoice=="淺色"){
             for(int i=0;i<5;i++) {
-                while (chmemaf != L[i]&&i==4) {
+                if (chmemaf != L[i]&&i==4) {
                     for(int k=0;k<5;k++) {
                         if (chmembe == L[k]) {
                             L[k]=chmemaf;
@@ -91,16 +111,16 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
-        memberL1.setText(L[0]);
-        memberL2.setText(L[1]);
-        memberL3.setText(L[2]);
-        memberL4.setText(L[3]);
-        memberL5.setText(L[4]);
-        memberR1.setText(RR[0]);
-        memberR2.setText(RR[1]);
-        memberR3.setText(RR[2]);
-        memberR4.setText(RR[3]);
-        memberR5.setText(RR[4]);
+        memberL1.setText(""+L[0]);
+        memberL2.setText(""+L[1]);
+        memberL3.setText(""+L[2]);
+        memberL4.setText(""+L[3]);
+        memberL5.setText(""+L[4]);
+        memberR1.setText(""+RR[0]);
+        memberR2.setText(""+RR[1]);
+        memberR3.setText(""+RR[2]);
+        memberR4.setText(""+RR[3]);
+        memberR5.setText(""+RR[4]);
         teamchoice="";
         chbe.setText("");
         chaf.setText("");
@@ -112,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
     public void changeR(View v){
         teamchoice="深色";
         change();
-    }*/
+    }
     public void event() {
         TextView showt=findViewById(R.id.showtext);
         TextView event =findViewById(R.id.event);
@@ -147,13 +167,43 @@ public class MainActivity extends AppCompatActivity {
                     }
                     foulR.setText("犯規數\n" + foulright );
             }
-            showt.append(""+teamchoice+"_"+markmember+"號_"+markevent+"\n");
+            insert();
+            //showt.append(""+teamchoice+"_"+markmember+"號_"+markevent+"\n");
         }
         markevent="";
         markmember="";
         teamchoice="";
         scoreplus=0;
         foulplus=0;
+    }
+
+    public void insert() {
+
+        final TextView text_view = (TextView) findViewById(R.id.showtext);
+
+        new Thread(new Runnable() {
+            public void run() {
+                // 取得資料
+                String stringteam="1";
+                final TextView membernum=(TextView) findViewById(R.id.membernum);
+                String stringmemnum = membernum.getText().toString();
+                final TextView event=(TextView) findViewById(R.id.event);
+                String stringevent = event.getText().toString();
+
+                // 將資料寫入資料庫
+                MysqlCon con = new MysqlCon();
+                con.insertData(stringteam,stringmemnum,stringevent);
+                // 讀取更新後的資料
+                final String updata = con.getData();
+                Log.v("OK", updata);
+                text_view.post(new Runnable() {
+                    public void run() {
+                        text_view.setText(updata);
+                    }
+                });
+
+            }
+        }).start();
     }
     public void scoreplus1(View v){
         markevent="罰球進";
