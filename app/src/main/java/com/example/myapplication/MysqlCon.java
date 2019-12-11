@@ -50,7 +50,7 @@ public class MysqlCon {
                 String memnum = rs.getString("memnum");
                 String event = rs.getString("event");
 
-                data += team + "_" + memnum + "號_" + event + "\n";
+                data += team + "_" + memnum + "_" + event + "\n";
             }
             st.close();
         } catch (SQLException e) {

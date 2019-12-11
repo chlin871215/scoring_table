@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     int scoreleft,scoreright,foulleft,foulright,scoreplus,foulplus,period=1,chmembe,chmemaf;
-    String markmember,markevent,teamchoice;
+    String markmember,markevent,teamchoice,TL,TR;
 
 
     public void change(){
@@ -72,22 +72,25 @@ public class MainActivity extends AppCompatActivity {
         RR[3]=Integer.valueOf(memberR4.getText().toString());
         RR[4]=Integer.valueOf(memberR5.getText().toString());
 
-        if(teamchoice=="深色"){
+        if(teamchoice==TR){
             for(int i=0;i<5;i++) {
-                while (chmemaf != RR[i]&&i==4) {
-                    for(int k=0;k<5;k++) {
-                        if (chmembe == RR[k]) {
-                            RR[k]=chmemaf;
+                if (chmemaf == RR[i]) { break;}
+                else if(i==4){
+                        for(int k=0;k<5;k++) {
+                            if (chmembe == RR[k]) {
+                                RR[k] = chmemaf;
+                            }
                         }
                     }
-                }
+
             }
-        }else if(teamchoice=="淺色"){
+        }else if(teamchoice==TL){
             for(int i=0;i<5;i++) {
-                if (chmemaf != L[i]&&i==4) {
+                if (chmemaf == L[i]) { break;}
+                else if(i==4){
                     for(int k=0;k<5;k++) {
                         if (chmembe == L[k]) {
-                            L[k]=chmemaf;
+                            L[k] = chmemaf;
                         }
                     }
                 }
@@ -105,9 +108,9 @@ public class MainActivity extends AppCompatActivity {
         for(int i=0;i<5;i++){
             for(int k=i+1;k<5;k++){
                 if(RR[i]>RR[k]){
-                    int buffer=RR[i];
+                    int buffer2=RR[i];
                     RR[i]=RR[k];
-                    RR[k]=buffer;
+                    RR[k]=buffer2;
                 }
             }
         }
@@ -126,15 +129,14 @@ public class MainActivity extends AppCompatActivity {
         chaf.setText("");
     }
     public void changeL(View v){
-        teamchoice="淺色";
+        teamchoice= TL ;
         change();
     }
     public void changeR(View v){
-        teamchoice="深色";
+        teamchoice= TR ;
         change();
     }
     public void event() {
-        TextView showt=findViewById(R.id.showtext);
         TextView event =findViewById(R.id.event);
         TextView member =findViewById(R.id.membernum);
         TextView scoreL = findViewById(R.id.scoreL);
@@ -146,8 +148,7 @@ public class MainActivity extends AppCompatActivity {
             event.setText("");
             member.setText("");
         }else{
-            switch (teamchoice){
-                case "淺色":
+            if (teamchoice==TL){
                     scoreleft= scoreleft+scoreplus;
                     scoreL.setText("" + scoreleft );
                     if(foulleft==5){
@@ -156,19 +157,17 @@ public class MainActivity extends AppCompatActivity {
                         foulleft=foulleft+foulplus;
                     }
                     foulL.setText("犯規數\n" + foulleft );
-                    break;
-                default:
-                    scoreright=scoreright+scoreplus;
+            }else if(teamchoice==TR) {
+                    scoreright = scoreright + scoreplus;
                     scoreR.setText("" + scoreright);
-                    if(foulright==5){
-                    foulright=5;
-                    }else{
-                    foulright++;
+                    if (foulright == 5) {
+                        foulright = 5;
+                    } else {
+                        foulright++;
                     }
-                    foulR.setText("犯規數\n" + foulright );
-            }
+                    foulR.setText("犯規數\n" + foulright);
+                 }
             insert();
-            //showt.append(""+teamchoice+"_"+markmember+"號_"+markevent+"\n");
         }
         markevent="";
         markmember="";
@@ -184,7 +183,8 @@ public class MainActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             public void run() {
                 // 取得資料
-                String stringteam="1";
+                final TextView teamnum=(TextView) findViewById(R.id.teamnum);
+                String stringteam = teamnum.getText().toString();
                 final TextView membernum=(TextView) findViewById(R.id.membernum);
                 String stringmemnum = membernum.getText().toString();
                 final TextView event=(TextView) findViewById(R.id.event);
@@ -232,16 +232,6 @@ public class MainActivity extends AppCompatActivity {
         markevent="三分未進";
         event();
     }
-    public void periodplus(View v){
-        TextView perioD = findViewById(R.id.periodview);
-        period++;
-        perioD.setText("節數\n" + period );
-    }
-    public void periodminus(View v){
-        TextView perioD = findViewById(R.id.periodview);
-        period--;
-        perioD.setText("節數\n" + period );
-    }
     public void Offensivefoul(View v){
         markevent="進攻犯規";
         foulplus=1;
@@ -277,69 +267,94 @@ public class MainActivity extends AppCompatActivity {
         event();
     }
     public void member(){
+        team();
         TextView event =findViewById(R.id.event);
         TextView member =findViewById(R.id.membernum);
-        member.setText("" + markmember + "號");
+        member.setText( markmember + "號");
         event.setText("");
+    }
+    public void team(){
+        TextView team =findViewById(R.id.teamnum);
+        team.setText(""+teamchoice);
     }
     public void memberL1(View v){
         Button mem=findViewById(R.id.memberL1);
         markmember=mem.getText().toString();
-        teamchoice = "淺色";
+        TextView team=findViewById(R.id.textView2);
+        TL=team.getText().toString();
+        teamchoice = TL;
         member();
     }
     public void memberL2(View v){
         Button mem=findViewById(R.id.memberL2);
         markmember=mem.getText().toString();
-        teamchoice = "淺色";
+        TextView team=findViewById(R.id.textView2);
+        TL=team.getText().toString();
+        teamchoice = TL;
         member();
     }
     public void memberL3(View v){
         Button mem=findViewById(R.id.memberL3);
         markmember=mem.getText().toString();
-        teamchoice = "淺色";
+        TextView team=findViewById(R.id.textView2);
+        TL=team.getText().toString();
+        teamchoice = TL;
         member();
     }
     public void memberL4(View v){
         Button mem=findViewById(R.id.memberL4);
         markmember=mem.getText().toString();
-        teamchoice = "淺色";
+        TextView team=findViewById(R.id.textView2);
+        TL=team.getText().toString();
+        teamchoice = TL;
         member();
     }
     public void memberL5(View v){
         Button mem=findViewById(R.id.memberL5);
         markmember=mem.getText().toString();
-        teamchoice = "淺色";
+        TextView team=findViewById(R.id.textView2);
+        TL=team.getText().toString();
+        teamchoice = TL;
         member();
     }
     public void memberR1(View v){
         Button mem=findViewById(R.id.memberR1);
         markmember=mem.getText().toString();
-        teamchoice = "深色";
+        TextView team=findViewById(R.id.textView3);
+        TR=team.getText().toString();
+        teamchoice = TR;
         member();
     }
     public void memberR2(View v){
         Button mem=findViewById(R.id.memberR2);
         markmember=mem.getText().toString();
-        teamchoice = "深色";
+        TextView team=findViewById(R.id.textView3);
+        TR=team.getText().toString();
+        teamchoice = TR;
         member();
     }
     public void memberR3(View v){
         Button mem=findViewById(R.id.memberR3);
         markmember=mem.getText().toString();
-        teamchoice = "深色";
+        TextView team=findViewById(R.id.textView3);
+        TR=team.getText().toString();
+        teamchoice = TR;
         member();
     }
     public void memberR4(View v){
         Button mem=findViewById(R.id.memberR4);
         markmember=mem.getText().toString();
-        teamchoice = "深色";
+        TextView team=findViewById(R.id.textView3);
+        TR=team.getText().toString();
+        teamchoice = TR;
         member();
     }
     public void memberR5(View v){
         Button mem=findViewById(R.id.memberR5);
         markmember=mem.getText().toString();
-        teamchoice = "深色";
+        TextView team=findViewById(R.id.textView3);
+        TR=team.getText().toString();
+        teamchoice = TR;
         member();
     }
 
